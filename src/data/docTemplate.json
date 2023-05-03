@@ -1,0 +1,97 @@
+[
+    {
+      "nodeName": "DIV",
+      "stack": [
+        { "text": " ", "style": ["html-div"] },
+        {
+          "text": "My title",
+          "nodeName": "H1",
+          "fontSize": 24,
+          "bold": true,
+          "marginBottom": 5,
+          "style": ["html-h1", "html-div"]
+        },
+        { "text": " ", "style": ["html-div"] },
+        {
+          "text": [
+            {
+              "text": " This is a sentence with a ",
+              "margin": [0, 5, 0, 10],
+              "style": ["html-p", "html-div"]
+            },
+            {
+              "text": "bold word",
+              "nodeName": "STRONG",
+              "bold": true,
+              "style": ["html-strong", "html-p", "html-div"]
+            },
+            {
+              "text": ", ",
+              "margin": [0, 5, 0, 10],
+              "style": ["html-p", "html-div"]
+            },
+            {
+              "text": "one in italic",
+              "nodeName": "EM",
+              "italics": true,
+              "style": ["html-em", "html-p", "html-div"]
+            },
+            {
+              "text": ", and ",
+              "margin": [0, 5, 0, 10],
+              "style": ["html-p", "html-div"]
+            },
+            {
+              "text": "one with underline",
+              "nodeName": "U",
+              "decoration": ["underline"],
+              "style": ["html-u", "html-p", "html-div"]
+            },
+            {
+              "text": ". And finally ",
+              "margin": [0, 5, 0, 10],
+              "style": ["html-p", "html-div"]
+            },
+            {
+              "text": "a link",
+              "color": "blue",
+              "decoration": ["underline"],
+              "style": ["html-a", "html-p", "html-div"],
+              "link": "https://www.somewhere.com",
+              "nodeName": "A"
+            },
+            {
+              "text": ". ",
+              "margin": [0, 5, 0, 10],
+              "style": ["html-p", "html-div"]
+            }
+          ],
+          "nodeName": "P",
+          "margin": [0, 5, 0, 10],
+          "style": ["html-p", "html-div"]
+        },
+        { "text": " ", "style": ["html-div"] }
+      ]
+    },
+  
+    { "text": " " },
+  
+    {
+      "nodeName": "DIV",
+      "stack": [
+        { "text": " ", "style": ["html-div", "name"] },
+        {
+          "text": " My Name is {{ name }} ",
+          "nodeName": "H2",
+          "fontSize": 22,
+          "bold": true,
+          "marginBottom": 5,
+          "style": ["html-h2", "html-div", "name"]
+        },
+        { "text": " ", "style": ["html-div", "name"] }
+      ]
+    },
+  
+    { "text": " " }
+  ]
+  

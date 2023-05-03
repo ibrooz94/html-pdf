@@ -1,0 +1,111 @@
+<script setup>
+import pdfMake from "pdfmake/build/pdfmake";
+import pdfFonts from "pdfmake/build/vfs_fonts";
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
+
+import htmlToPdfmake from "html-to-pdfmake";
+var html = htmlToPdfmake(`
+<section class="page">
+    <h1 id="pdfmake">pdfmake</h1>
+    <p>
+        PDF document generation library for server-side and client-side usage in
+        pure JavaScript.
+    </p>
+    <h2 id="features">Features</h2>
+    <h5 id="basics">basics</h5>
+    <ul>
+        <li>line-wrapping</li>
+        <li>text-alignments <em>(left, right, centered, justified)</em></li>
+        <li>numbered and bulleted lists</li>
+        <li>margins</li>
+        <li>images and vector graphics</li>
+    </ul>
+    <h5 id="styling">styling</h5>
+    <ul>
+        <li>convenient styling</li>
+        <li>style inheritance</li>
+        <li>custom style dictionaries</li>
+    </ul>
+    <h5 id="tables-and-columns">tables and columns</h5>
+    <ul>
+        <li>auto/fixed/star-sized/percentage columns widths</li>
+        <li>col-spans and row-spans</li>
+        <li>headers <em>automatically repeated in case of a page-break</em></li>
+        <li>non-breaking rows</li>
+        <li>non-breaking sections <em>keeping headers and rows together</em></li>
+    </ul>
+    <h5 id="page-headers-and-footers">page headers and footers</h5>
+    <ul>
+        <li>static or dynamic content</li>
+        <li>page numbers</li>
+        <li>page count</li>
+    </ul>
+    <h5 id="other">other</h5>
+    <ul>
+        <li>page dimensions and orientations</li>
+        <li>background-layer</li>
+        <li>custom page breaks</li>
+        <li>font embedding</li>
+        <li>support for complex, multi-level (nested) structures</li>
+        <li>table of contents</li>
+        <li>setting of PDF metadata <em>(e.g. author, subject)</em></li>
+        <li>tiling patterns</li>
+    </ul>
+    <h5 id="client-side-helper-methods">client-side helper methods</h5>
+    <ul>
+        <li>download <em>with the specified filename</em></li>
+        <li>open <em>in another tab</em></li>
+        <li>print <em>auto-triggering print</em></li>
+    </ul>
+    <h2 id="examples">Examples</h2>
+    <p>
+        Check out
+        <a href="http://bpampuch.github.io/pdfmake/playground.html">the playground</a>
+        and
+        <a href="https://github.com/bpampuch/pdfmake/tree/0.2/examples">examples</a>
+        (for version
+        <a href="https://github.com/bpampuch/pdfmake/tree/0.2/examples">0.1.x</a>).
+    </p>
+
+    <div class="chevrons">
+        <div id="navigation">
+            <a class="nav nav-next" href="/docs/0.1/getting-started/" title="Getting started"
+                style="margin-right: 0px"><label>Getting started</label><i class="fa fa-chevron-right"></i></a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footline">
+        <div class="github-link">
+            <a href="https://github.com/pdfmake/docs/edit/0.1/content//_index.md" target="blank"><i
+                    class="fa fa-code-fork"></i> Improve this page</a>
+        </div>
+    </div>
+
+    <div></div>
+</footer>
+`);
+
+html = {content:html}
+const pdfDocGenerator = pdfMake.createPdf(html);
+
+// pdfDocGenerator.getDataUrl((dataUrl) => {
+// 	const targetElement = document.querySelector('#iframeContainer');
+// 	const iframe = document.createElement('iframe');
+// 	iframe.src = dataUrl;
+// 	targetElement.appendChild(iframe);
+// });
+
+// const html = nunjucks.render('template.html', { randomNum: get_a_random_number() });
+
+</script>
+
+<template>
+
+  <button @click="pdfDocGenerator.open()"> Click Me </button>
+</template>
+
+<style scoped>
+
+</style>
