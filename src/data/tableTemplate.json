@@ -1,0 +1,236 @@
+[
+  {
+    "nodeName": "TABLE",
+    "marginBottom": 5,
+    "style": [
+      "html-table"
+    ],
+    "table": {
+      "body": [
+        [
+          {
+            "text": "Summary",
+            "nodeName": "TD",
+            "style": [
+              "html-td",
+              "html-tr",
+              "html-thead",
+              "html-table"
+            ]
+          },
+          {
+            "text": " 2017",
+            "nodeName": "TD",
+            "style": [
+              "html-td",
+              "html-tr",
+              "html-thead",
+              "html-table"
+            ]
+          },
+          {
+            "text": " 2019",
+            "nodeName": "TD",
+            "style": [
+              "html-td",
+              "html-tr",
+              "html-thead",
+              "html-table"
+            ]
+          },
+          {
+            "text": "2023",
+            "nodeName": "TD",
+            "style": [
+              "html-td",
+              "html-tr",
+              "html-thead",
+              "html-table"
+            ]
+          }
+        ],
+        [
+          {
+            "text": " New Guarantees",
+            "nodeName": "TD",
+            "style": [
+              "html-td",
+              "html-tr",
+              "html-tbody",
+              "html-table"
+            ]
+          },
+          {
+            "text": "16",
+            "nodeName": "TD",
+            "style": [
+              "html-td",
+              "html-tr",
+              "html-tbody",
+              "html-table"
+            ]
+          },
+          {
+            "text": "17",
+            "nodeName": "TD",
+            "style": [
+              "html-td",
+              "html-tr",
+              "html-tbody",
+              "html-table"
+            ]
+          },
+          {
+            "text": "{{ newGuarantees }}",
+            "nodeName": "TD",
+            "style": [
+              "html-td",
+              "html-tr",
+              "html-tbody",
+              "html-table"
+            ]
+          }
+        ],
+        [
+          {
+            "text": " New Mandates ",
+            "nodeName": "TD",
+            "style": [
+              "html-td",
+              "html-tr",
+              "html-tbody",
+              "html-table"
+            ]
+          },
+          {
+            "text": "65",
+            "nodeName": "TD",
+            "style": [
+              "html-td",
+              "html-tr",
+              "html-tbody",
+              "html-table"
+            ]
+          },
+          {
+            "text": "34",
+            "nodeName": "TD",
+            "style": [
+              "html-td",
+              "html-tr",
+              "html-tbody",
+              "html-table"
+            ]
+          },
+          {
+            "text": "{{ newMandates }}",
+            "nodeName": "TD",
+            "style": [
+              "html-td",
+              "html-tr",
+              "html-tbody",
+              "html-table"
+            ]
+          }
+        ],
+        [
+          {
+            "text": " Follow On Mandates ",
+            "nodeName": "TD",
+            "style": [
+              "html-td",
+              "html-tr",
+              "html-tbody",
+              "html-table"
+            ]
+          },
+          {
+            "text": "5",
+            "nodeName": "TD",
+            "style": [
+              "html-td",
+              "html-tr",
+              "html-tbody",
+              "html-table"
+            ]
+          },
+          {
+            "text": "42",
+            "nodeName": "TD",
+            "style": [
+              "html-td",
+              "html-tr",
+              "html-tbody",
+              "html-table"
+            ]
+          },
+          {
+            "text": "{{ followMandates }}",
+            "nodeName": "TD",
+            "style": [
+              "html-td",
+              "html-tr",
+              "html-tbody",
+              "html-table"
+            ]
+          }
+        ],
+        [
+          {
+            "text": " Credit Approved Deals ",
+            "nodeName": "TD",
+            "style": [
+              "html-td",
+              "html-tr",
+              "html-tbody",
+              "html-table"
+            ]
+          },
+          {
+            "text": "45",
+            "nodeName": "TD",
+            "style": [
+              "html-td",
+              "html-tr",
+              "html-tbody",
+              "html-table"
+            ]
+          },
+          {
+            "text": "33",
+            "nodeName": "TD",
+            "style": [
+              "html-td",
+              "html-tr",
+              "html-tbody",
+              "html-table"
+            ]
+          },
+          {
+            "text": "{{ creditApproved }}",
+            "nodeName": "TD",
+            "style": [
+              "html-td",
+              "html-tr",
+              "html-tbody",
+              "html-table"
+            ]
+          }
+        ]
+      ],
+      "widths": [
+        "auto",
+        "auto",
+        "auto",
+        "auto"
+      ],
+      "heights": [
+        "auto",
+        "auto",
+        "auto",
+        "auto",
+        "auto"
+      ]
+    }
+  }
+]
