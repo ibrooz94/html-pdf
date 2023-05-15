@@ -1,43 +1,115 @@
+
 <script setup>
-import { reactive, ref } from "vue";
-import Mustache from "mustache";
-import pdfMake from "pdfmake/build/pdfmake";
-import pdfFonts from "pdfmake/build/vfs_fonts";
+import { ref, onMounted, markRaw } from "vue";
+import exportPdfTemplate from "./data/jsTemplate"
 
-pdfMake.vfs = pdfFonts.pdfMake.vfs;
+import { Chart, Colors, registerables } from 'chart.js';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
+Chart.register(...registerables, Colors, ChartDataLabels)
 
-import tableTemplate from "./data/tableTemplate.json"
 
+const chartRef = ref(null);
 const creationDate = ref(new Date().toISOString().split('T')[0])
 const rfQNo = ref(32)
 const requestor = ref("John")
 const businessUnit = ref("C3")
 const department = ref("Sales")
+const staticVal = ref(89)
 
-const newGurantees = ref("")
-const newMandates = ref("")
-const followMandates = ref("")
-const creditApproved = ref("")
+const newGurantees = ref()
+const newMandates = ref()
+const creditApproved = ref()
+const followMandates = ref()
 
 
+onMounted(() => {
 
-function pdfCall() {
-    var data = ({
-    newGuarantees: newGurantees.value,
-    newMandates: newMandates.value,
-    followMandates: followMandates.value,
-    creditApproved: creditApproved.value,
+  const ctx = document.getElementById('myChart');
+  const data = {
+    labels: [
+      'New Guarantees',
+      `New Mandates`,
+      'Follow Mandates'
+    ],
+    datasets: [{
+      label: 'My First Dataset',
+      data: [newGurantees.value, newMandates.value, followMandates.value],
+      datalabels: {
+        anchor: 'center'
+      },
+      hoverOffset: 4
+    }],
+  }
+  const options = {
+    devicePixelRatio: 2,
+    plugins: {
+      datalabels: {
+        color: 'white',
+        display: 'auto',
+        borderColor: 'white',
+        borderRadius: 25,
+        borderWidth: 2,
+        // font: {
+        //   size: 58
+        // },
+        // formatter: function(value, context) {
+        //   if (value){
+        //     return context.chart.data.labels[context.dataIndex] +"\n" + value;
+        //   }
+        // },
+        backgroundColor: function(context) {
+          return context.dataset.backgroundColor;
+        },        
+      }
+    }
+  }
+  const config = {
+    type: 'doughnut',
+    data: data,
+    options: options
+  };
+
+  const createdChart = new Chart(ctx, config);
+  chartRef.value = markRaw(createdChart)
+
+})
+
+const updateChart = () => {
+  return new Promise((resolve, reject) => {
+    const chart = chartRef.value;
+    chart.data.datasets[0].data = [newGurantees.value, newMandates.value, followMandates.value]
+    chart.update('none');
+    resolve()
   });
-  var final = JSON.parse(Mustache.render(JSON.stringify(tableTemplate), data));
+};
 
-  const pdfDocGenerator = pdfMake.createPdf({ content: final });
+const pdfCall = async () => {
 
-  return pdfDocGenerator.open()
+  await updateChart();
+  const ctx = document.getElementById('myChart');
+  const chartsImage = ctx.toDataURL('image/png');
+
+  try {
+    const exportPdf = exportPdfTemplate(
+      rfQNo.value, chartsImage, creationDate.value, requestor.value, businessUnit.value, department.value,
+      newGurantees.value, newMandates.value, followMandates.value, creditApproved.value,
+      staticVal.value, staticVal.value, staticVal.value, staticVal.value);
+
+    return exportPdf.open();
+
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 </script>
 
 <template>
+  <!-- Chart Js -->
+   <div class="chartImage" > 
+    <canvas id="myChart" ></canvas>
+  </div>
+
   <div class="general_">
     <div class="generalInput_">
       <p>RFQ NO</p>
@@ -77,7 +149,7 @@ function pdfCall() {
     </div>
     <div class="generalInput_">
       <p>Credit Approved Deals</p>
-      <input type="text" v-model="creditApproved" >
+      <input type="text" v-model="creditApproved">
     </div>
   </div>
 
@@ -85,6 +157,10 @@ function pdfCall() {
 </template>
 
 <style scoped>
+.chartImage{
+  position: absolute;
+  top: -5000px;
+}
 .general_ {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;

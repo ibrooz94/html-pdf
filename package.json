@@ -8,8 +8,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "chart.js": "^4.3.0",
+    "chartjs-plugin-datalabels": "^2.2.0",
     "html-to-pdfmake": "^2.4.20",
+    "install": "^0.13.0",
     "mustache": "^4.2.0",
+    "npm": "^9.6.6",
     "nunjucks": "^3.2.4",
     "pdfmake": "^0.2.7",
     "vue": "^3.2.47"

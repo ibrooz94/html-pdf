@@ -232,5 +232,15 @@
         "auto"
       ]
     }
+  },
+  {
+    "nodeName": "IMG",
+    "image": "{{{ image1 }}}",
+    "height": 226,
+    "width": 151,
+    "style": [
+      "html-img",
+      "html-div"
+    ]
   }
 ]
