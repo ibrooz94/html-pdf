@@ -1,7 +1,7 @@
 <script setup>
 
 import { ref, onMounted, markRaw } from "vue";
-import exportPdfTemplate from "../../data/jsTemplate"
+import exportPdfTemplate from "../../data/chartsTemplate"
 
 import { Chart, Colors, registerables } from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
